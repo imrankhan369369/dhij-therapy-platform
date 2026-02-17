@@ -46,7 +46,7 @@ public class HelperController {
 
     // Get all helpers
     @GetMapping
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+  //  @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<ApiResponse<List<HelperDto>>> getAllHelpers() {
     	
     	List<HelperDto> helpers = helperService.getAllHelpers();
@@ -148,7 +148,7 @@ List<HelperDto> helpers = helperService.searchHelpers(name, role, specialty);
 
     // Get helper by id
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+   // @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<ApiResponse<HelperDto>> getHelperById(@PathVariable Long id) {
      
         HelperDto dto = helperService.getHelperById(id)

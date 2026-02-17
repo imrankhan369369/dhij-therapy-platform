@@ -31,7 +31,7 @@ export default function UserDashboard() {
   return (
     <Box>
       {/* Header */}
-      <AppBar position="sticky" color="transparent" elevation={0}
+      {/* <AppBar position="sticky" color="transparent" elevation={0}
         sx={{ backdropFilter: "blur(10px)", borderBottom: (t) => `1px solid ${t.palette.divider}` }}>
         <Toolbar sx={{ minHeight: 72 }}>
           <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2 }}>
@@ -48,7 +48,7 @@ export default function UserDashboard() {
             </IconButton>
           </Stack>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
 
       {/* Content */}
       <Container sx={{ py: 4 }}>

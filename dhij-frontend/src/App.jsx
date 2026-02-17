@@ -7,31 +7,36 @@ import AdminDashboard from "./pages/AdminDashboard.jsx";
 import UserDashboard from "./pages/UserDashboard.jsx";
 import ProtectedRoute from "./auth/ProtectedRoute.jsx";
 import Register from "./pages/Register.jsx";
-
+import AppHeader from "./components/AppHeader.jsx";
+ 
 export default function App() {
   return (
     <BrowserRouter>
+      {/* ✅ Navbar shows on ALL pages */}
+      <AppHeader />
+ 
       <Routes>
         {/* Public */}
         <Route path="/" element={<Landing />} />
         <Route path="/helpers/:id" element={<HelperProfile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
+ 
         {/* ADMIN only */}
-        <Route element={<ProtectedRoute allowed={['ADMIN']} />}>
+        <Route element={<ProtectedRoute allowed={["ADMIN"]} />}>
           <Route path="/admin" element={<AdminDashboard />} />
         </Route>
-
+ 
         {/* USER and ADMIN */}
-        <Route element={<ProtectedRoute allowed={['USER', 'ADMIN']} />}>
+        <Route element={<ProtectedRoute allowed={["USER", "ADMIN"]} />}>
           <Route path="/user" element={<UserDashboard />} />
           <Route path="/book/:id" element={<Booking />} />
         </Route>
-
+ 
         <Route path="/unauthorized" element={<div>Unauthorized</div>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
 }
+ 
