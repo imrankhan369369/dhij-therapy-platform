@@ -8,11 +8,27 @@ import { Logout, Refresh } from "@mui/icons-material";
 import { getAllHelpers } from "../services/helpersService";
 import { useAuth } from "../auth/AuthContext";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { getMyBookings } from "../services/helpersService";
+import dayjs from "dayjs";
 
 export default function UserDashboard() {
   const { user, logout } = useAuth();
   const [helpers, setHelpers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const loadBookings = async () => {
+    try {
+      const data = await getMyBookings();
+      setBookings(data);
+    } catch {
+      // handle error
+    }
+  };
+   
+  // Call on mount
+  useEffect(() => {
+    load();
+    loadBookings();
+  }, []);
 
   const load = async () => {
     try {

@@ -13,6 +13,11 @@ export const getHelperById = async (id) => {
   return data?.data;
 };
 
+export const getMyBookings = async () => {
+  const { data } = await api.get("/bookings/my");
+  return data?.data || [];
+};
+
 // POST /helpers/add (requires ADMIN)
 export const addHelper = async (payload) => {
   const { data } = await api.post("/helpers/add", payload);
