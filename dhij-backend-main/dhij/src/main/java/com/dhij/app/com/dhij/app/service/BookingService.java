@@ -38,6 +38,9 @@ public class BookingService {
         // free = all - taken
         return allStarts.stream().filter(s -> !taken.contains(s)).collect(Collectors.toList());
     }
+    public List<Booking> getBookingsByUsername(String username){
+    	return repo.findByUsername(username);
+    }
 
     public Optional<LocalDateTime> findNextAvailable(Long helperId, LocalDate fromDate) {
         for (int d = 0; d < 7; d++) { // look up to a week ahead

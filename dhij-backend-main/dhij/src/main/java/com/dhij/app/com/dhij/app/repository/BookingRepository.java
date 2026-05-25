@@ -12,4 +12,5 @@ import java.util.Optional;
 public interface BookingRepository extends JpaRepository<Booking, Long> {
     List<Booking> findByHelperIdAndStartTimeBetween(Long helperId, LocalDateTime dayStart, LocalDateTime dayEnd);
     Optional<Booking> findByHelperIdAndStartTime(Long helperId, LocalDateTime startTime);
+    List<Booking> findByUsername(String username);
 }

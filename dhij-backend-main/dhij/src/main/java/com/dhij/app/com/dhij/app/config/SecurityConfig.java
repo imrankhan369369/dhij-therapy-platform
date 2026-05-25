@@ -43,6 +43,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // --- Public endpoints ---
                 .requestMatchers("/auth/**", "/hello", "/h2-console/**").permitAll()
+                
+                .requestMatchers(HttpMethod.GET, "/bookings/my").authenticated()
  
                 // ✅ IMPORTANT: Allow public READ access to helpers
                 .requestMatchers(HttpMethod.GET, "/helpers/**").permitAll()
